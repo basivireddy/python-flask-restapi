@@ -8,7 +8,7 @@ appService = AppService();
 
 @app.route('/')
 def home():
-    return "App Works!!!"
+    return appService.get_tasks()
 
 
 @app.route('/api/tasks')
@@ -32,3 +32,6 @@ def update_task():
 def delete_task(id):
     return appService.delete_task(id)
 
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=80)
